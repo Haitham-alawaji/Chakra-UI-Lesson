@@ -11,7 +11,7 @@
 # مقدمة عن Chakra UI :
 
 
-  مكتبة الـ[Chakra UI](https://www.google.com) هي مكتبة محتوى (component librire)  خاصة في تنسيق العناصر وهي تعمل مع أكثر من إطار عمل (framework) مثل :  Next.js ,Gatsby والاهم بالنسة للهذا الدرس هو React.js. 
+  مكتبة الـ[Chakra UI](https://chakra-ui.com/) هي مكتبة محتوى (component librire)  خاصة في تنسيق العناصر وهي تعمل مع أكثر من إطار عمل (framework) مثل :  Next.js ,Gatsby والاهم بالنسة للهذا الدرس هو React.js. 
   
   حيث تتكون مكتبة ChakraUI من عناصر جاهزةللإدراج في المشروع وقابلة للتعديل و التخصيص للتناسب العمل ومتطلباته 
   # مايميز Chakra UI :
@@ -63,7 +63,7 @@ const colors = {
 }
 
 ```
-أو يمكن تغير اللون من خلال خصائص العنص `prop` مثل :
+أو يمكن تغير اللون من خلال خصائص العنصر `prop` مثل :
 ```js
       <Text
             mt="1"
@@ -78,8 +78,17 @@ const colors = {
 ```
 ## خضائص /props
 تستعمل ChakraUI خصائص مقاربة للخصائص الموجود في `CSS` في الجدول التالي يوضح اكثر الخصائص المستعملة :
-| ChakraUI    | CSS         | prop      |
-| ----------- | ----------- | --------- |
-| m, margin	  | margin      |           |
-| color       | color       |           |
-|             |             |           |
+                                                                    | ChakraUI    | CSS         |     
+| ----------- | ----------- |
+| m, margin	  | margin      |  
+| color       | color       |
+|      bg, background       |   background          | 
+|      fontFamily       |   font-family	          | 
+|      fontSize      |  font-size	          | 
+
+وللإطلاع على جميع الخصائص `props` تفضل بزيارة الصفحةالخاصة بالخصائص `props` في [Chakra UI](https://chakra-ui.com/docs/styled-system/style-props) 
+
+## العناصر / Components
+تقدم مكتبة ChakraUI عناصر جاهزة للاستخدام للتوفير الوقت ,وللإطلاع على جميع العناصر `Components` تفضل بزيارة الصفحةالخاصة بالخصائص `Components` في [Chakra UI](https://chakra-ui.com/docs/components) 
+ ## النماذج / Templates 
+ يتميز ChakraUI بوجود نماذج جاهز للإضافة للمشروعك و تعديل عليها لكي تناسب مشروعك ,و  من اشهر هذه المواقع [chakra templates](https://chakra-templates.dev/) , [choc-ui](https://choc-ui.com/) .
