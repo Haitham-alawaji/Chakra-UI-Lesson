@@ -1,6 +1,7 @@
 # Chakra UI-Lesson
 ![Chakra UI](https://raw.githubusercontent.com/chakra-ui/chakra-ui/main/media/logo-colored@2x.png?raw=true)
 
+
 # سوف نتعلم في هذا الدرس :
 
 * التعرف على مكتبة  Chakra UI
@@ -21,7 +22,7 @@
   حيث تتكون مكتبة ChakraUI من عناصر جاهزةللإدراج في المشروع وقابلة للتعديل و التخصيص للتناسب العمل ومتطلباته 
   # لماذا نستعمل  Chakra UI :
   *  قابل للتخصيص بالكامل : تتيح للمستخدم الحرية الكاملة في التعديل على كامل خصائص العنصر مثل الحجم اللون الخط وغيره .
-  * متكيفة\Responsive : جميع العناصر في مكتبة ChakraUI متكيفة (Responsive) مع مختلف أحجام شاشات العرض.
+  * ـ Responsive : جميع العناصر في مكتبة ChakraUI ـ (Responsive) مع مختلف أحجام شاشات العرض.
   * دعم TypeSeript 
   * مكتبة جديدة و في تحديث مستمر 
   * إختصار الوقت باستعمال عناصر جاهزة 
@@ -36,6 +37,8 @@ $ yarn add @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion
 بعد تثبيت المكتبة نقوم بإضافتها الى المشروع في ملف `index.tsx` بإستيراد  `ChakraProvider`من المكتبة و تغليف المشروع بـ `<ChakraProvider>` و `</ChakraProvider>`  :
 
 ```js
+//index.tsx
+
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -57,8 +60,8 @@ reportWebVitals();
 
 ## العناصر / Components
 توفر مكتبة ChakraUI  ,عناصر جاهزة للاستخدام للتوفير الكثير من الوقت و الجهد و تتميز بخصائص سهلة التعديل 
-على عكس `css` جميع عناصر `chakra-ui` تبدأ بحرف كبير مثل `Box` , `Card` , `Input` :
-### box : 
+على عكس `css` جميع عناصر `chakra-ui` تبدأ بحرف كبير مثل `Box` , `Text` , `Input` :
+### ـ box : 
 يعد عنصر `Box` خلاصة جميع العناصر حيث يعد من العناصر الأساسية في بناء جميع العناصر الاخرى , ويحل محل `dev`
 تكون أهمية إستعمال `Box` في
 * تصميم واجهات متكيفه بسهولة 
@@ -94,14 +97,14 @@ Image,
 
 export default function App() {
 
-const property = {
+const data = {
     imageUrl: "https://pbs.twimg.com/profile_images/1595710799556780034/cYX8qbt3_400x400.jpg",
     imageAlt: "أكادمية طويق 
     title: "معسكر تطوير مواقع الويب",
   };
   return (
   <Box maxW='sm' borderWidth='1px' borderRadius='lg' m="auto" mt="20" >
-      <Image src={property.imageUrl} alt={property.imageAlt} />
+      <Image src={data.imageUrl} alt={property.imageAlt} />
 
       <Box 
       p='6' 
@@ -113,10 +116,8 @@ const property = {
           mt='1'
           dir="rtl"
           fontWeight='semibold'
-          display="flex"
-          alignContent="center"
         >
-          {property.title}
+          {data.title}
         </Text>
       </Box>
     </Box>
@@ -139,112 +140,148 @@ Image,
 
 نلاحظ أيضا انه استعملانا مجموعة من `props` مع كلنا من `Box`,`Image`و`Text` :
 ```js
-  <Box maxW='sm' borderWidth='1px' borderRadius='lg' m="auto" mt="20" >
-      <Image src={property.imageUrl} alt={property.imageAlt} />
+  <Box maxW='sm' borderWidth='1px' borderRadius='lg' m="auto" mt="20px" >
+      
 ```
-`maxW`= maxWidth :  ليكون :`xs`صغير ,`sm`متوسط و`lx` للـكبير   "`px,rem,em,...`"يحدد الحد الاقصى لعرض العنصر وتحدد قيمتة  بـ وحدات الحجم  او بالقيم الجاهزة من مكتبةchakra  
-
-| Comp       | |          |     
-| -----------|-- | ----------- |
-| maxW     	 |maxWidth : |يحدد الحد الاقصى لعرض العنصر وتحدد قيمتة  بـ وحدات الحجم 
-<br/>:`px,rem,em,...` او بالقيم الجاهزة من `Chakra` ليكون :`xs`صغير ,`sm`متوسط و`lx` للـكبير      |  
-| color       | color       |
-| bg, background     |   background       | 
-|      fontFamily    |   font-family	    | 
-|      fontSize      |  font-size	          | 
+### خصائص `Box` :
+ * #### ـ`maxW`= maxWidth: يحدد الحد الأقصى لعرض العنصر وتحدد قيمتة بـ وحدات الحجم `px,rem,em,...` , او بالقيم الجاهزة من مكتبة `Chakra` حيث يكون `lx`للكبير و `sm`للمتوسط و `xs`للصغير . 
+* #### ـ`borderWidth` : يحدد عرض حدود العنصر .
+#### ـ`borderRadius` : يحدد مقدار انحنى زوايا العنصر  , حيث يحول من اطراف حاده الى اطراف منحنيه ويمكن تحديد قمته من خلال `sm, md, lg`.
+#### ـ`m` =  Margin :مماثلة للموجوده في `CSS` وهي تحدد المسافه الفاصله بين العنصر و الحدود الاخرى المحيطة به, هنا إستعملنا قيمة `auot` .
+#### ـ`mt` = Margin Top :مشابهة للسابقتها لكنها تحدد القيمه بين العنصر و الحد الاعلى منه, إستعملنا قمتة `20px` .
 
 
+### Text 
+### ـ`Text`: تحل محل paragraphs `p` حيث يمكن كتابة اي نص داخلها وعرضها في الواجهة 
+### خصائص `Text` :
+بعد إستعاء `Text` من مكتبة `Chakra` نستعملها كا التالي :
+```js 
+        <Text
+          mt='1'
+          dir="rtl"
+          fontWeight='semibold'
+        >
+          {data.title}
+        </Text>
+       
+ ```
+نلاحظ هنا اننا إستدعينا قيمة النص من `{data.title}` ويمكن ايضا كتابتة مباشرا 
+```js
+    <Text
+          mt='1'
+          dir="rtl"
+          fontWeight='semibold'
+        >
+          eمعسكر تطوير مواقع الويب
+        </Text>
+```
 
+#### ـ`dir`:تحدد باتجاه بداية النص حيت تكون القيمة الأفتراضية للنص من اليسار لليمين `ltr`, و للنحدد قيمتها للـتبدا من اليمين للـيسار نظيف قمتة `rtl` .
+#### ـ`fontweight` : يحدد عرض النص او بصوره ادق كمية الحبر في النص وهنا حدد قيمة `semibold` و من القيم الاخرى `bold` , `normal` .
 
-
-تقدم مكتبة ChakraUI عناصر جاهزة للاستخدام للتوفير الوقت ,وللإطلاع على جميع العناصر `Components` تفضل بزيارة الصفحةالخاصة بالخصائص `Components` في [Chakra UI](https://chakra-ui.com/docs/components)
-
-
-## تخصيص السمة 
-تتيح Chakra ui  القدرة الكامله على التعديل على السمة التصميم كا تغير الوضع الوضع النهار و الليلي والأللوان الخاصة بكل  منهما 
-للاستفادة من هذه الميزة نضيف في ملف `index.tsx`الخاص في المشروع متغر `colors` بالطريقة التالية : 
+### ـ Image :
+ يتعمل عنصر `Image` لعرض الصور مع خيار بديل في حال عدم عرض الصورة .
+### خصائص `Image` :
 
 ```js
-
-import { extendTheme, ChakraProvider } from '@chakra-ui/react'
-
-
-const colors = {
-  brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
-  },
-}
-
+      <Image src={data.imageUrl} alt={property.imageAlt} />
 ```
-
-
-أو يمكن تغير اللون من خلال خصائص العنصر `prop` مثل :
+كما وضحنا في المثال السابق إستدعينا قيمة `src` من `data` ويمكن ايضا كتابة مباشرة :
 ```js
-      <Text
-            color='#000000'
-          >
-            Hello word!
-          </Text>
+<Image src="https://pbs.twimg.com/profile_images/1595710799556780034/cYX8qbt3_400x400.jpg" alt="شعار أكادمية طويق " />
+
 ```
-## خضائص /props
-تستعمل ChakraUI خصائص مقاربة للخصائص الموجود في `CSS` في المثال التالي يوضح اكثر الخصائص المستعملة :
-====================>
+#### ـ`src`: يحدد مصدر الصوره 
+#### ـ`alt` : النص البديل يظهر للمستخدم في حالة تعطل الصورة 
+
+### ـ`SimpleGrid` 
+
+توفر `SimpleGrid` طريقة سهلة للتنسيق العناصر في ` responsive grid ` للنتاسب جميع أحجام أجهزة العرض , حيث تقوم بتقسيم شاشة العرض الى اعمدة و صفوف وتحديد عدد الصفوف في العرض عند نقاط معينة في عرض الشاشه :
 ```js
-
-<Text
-                mt="1"
-                dir='rtl'
-                lang='ar'
-                fontWeight="semibold"
-                fontFamily='Caveat'
-                lineHeight="tight"
-                color='#000000'
-              >
-                Hello word!
-              </Text>
+ <SimpleGrid
+          columns={{ base: 1, md: 2, lg: 3 }}
+        > 
 ```
-* `mt` :
-* `dir` :
-* `lang`:
-* `fontFamily` :
-* `lineHeight` :
-* `color` :
+حددنا في المصفوف عدد صفوف العرض و ونقطة التحول :
+* تكون `base` من `0em`الى `48em`
+* تكون `md` من `48em`الى `80em`
+* وتكون `lg` من `80em` و أعلى 
 
-
-| ChakraUI    | CSS         |     
-| ----------- | ----------- |
-| m, margin	  | margin      |  
-| color       | color       |
-| bg, background     |   background       | 
-|      fontFamily    |   font-family	    | 
-|      fontSize      |  font-size	          | 
-
-
-
-وللإطلاع على جميع الخصائص `props` تفضل بزيارة الصفحةالخاصة بالخصائص `props` في [Chakra UI](https://chakra-ui.com/docs/styled-system/style-props) 
-
-
-## متكيفة\Responsive
-يعتبر Responsive والتي تعني ان محتوى الصفحه يتماشى مع أي حجم شاشه ينعرض فيها (مثل: PC, smart phone).
+أولا نستدعي `simpleGraid` من مكتبة `Chakra UI ` :
 ```js
-<Text fontSize={{ base: "24px", md: "40px", lg: "56px" }}>
- This is responsive text
-</Text>
+//App.tsx
+import {Image,SimpleGrid} from "@chakra-ui/react";
 ```
-`base` 
-, `md` 
-, `lg`
+نضيفها الان للمشروع 
+```js 
+import {Image,SimpleGrid} from "@chakra-ui/react";
+
+export default function App() {
+
+  return (
+    <SimpleGrid
+          columns={{ base: 1, md: 2, lg: 3 }}
+          spacing={20}
+          px={{ base: 1, lg: 16, xl: 24 }}
+          py={20}
+          mx="auto"
+        > 
+        <Image src="https://pbs.twimg.com/profile_images/1595710799556780034/cYX8qbt3_400x400.jpg" alt="شعار أكادمية طويق " />
+        <Image src="https://pbs.twimg.com/profile_images/1595710799556780034/cYX8qbt3_400x400.jpg" alt="شعار أكادمية طويق " />
+        <Image src="https://pbs.twimg.com/profile_images/1595710799556780034/cYX8qbt3_400x400.jpg" alt="شعار أكادمية طويق " />
+        <Image src="https://pbs.twimg.com/profile_images/1595710799556780034/cYX8qbt3_400x400.jpg" alt="شعار أكادمية طويق " />
+        <Image src="https://pbs.twimg.com/profile_images/1595710799556780034/cYX8qbt3_400x400.jpg" alt="شعار أكادمية طويق " />
+        <Image src="https://pbs.twimg.com/profile_images/1595710799556780034/cYX8qbt3_400x400.jpg" alt="شعار أكادمية طويق " />
+    </SimpleGrid>
+      
+  );
+};
+```
+ليكون ناتج الكود السابق في الحجم الكامل عند عرض `lg` :
+![chakra-ui-img02](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gMC530VplxkiocgYA_HEaWRKvsaJxf0V20fULTqOx5IP84vMTiUnGW3a0AOs4Fd4p8Dh7WqF8ukrOgVwQ1AyMCMn_SFgg=w1366-h657)
+نلاحظ انه قام بقسيم الى ثلاث اعمده , ومهما زاد عرض الشاشه يضل توزيع العناصر نفسه .
+
+والان نقلص العرض لنصل الى نقطة التحول الاولى `md` لتكون النتيجة :
+![chakra-ui-img03](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gMqex22A-FMxDoWYVI55YXofP230H7VOYuKIAZAP7uWJWatrJTlDlwwSMiwGLSMYPKjNC3ONzn4zpHzyxJUwkeYv0pk=w969-h657)
+نلاحظ انه تحول التقسيم الى عمودين ولكن لاتزل العناصر تحتفظ بخصائصها .
+
+عد الوصول للحد الادنى `base` يقل التقسيم الى صف واحد : 
+![chakra-ui-img04](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gMIbrfEJHoDFxCMrXc0o-6BrYvKMHlGReKfsuVtHo-xqyNeWNmIUTqBYUMdPvRVASIJr30K86PlQ3lcULd1HGhfd5OHVQ=w969-h657)
+
+
+
+
 
 
 
  ## النماذج / Templates 
- يتميز ChakraUI بوجود نماذج جاهز للإضافة للمشروعك و تعديل عليها لكي تناسب مشروعك ,و  من اشهر هذه المواقع [chakra templates](https://chakra-templates.dev/) و, [choc-ui](https://choc-ui.com/) .
- ![Chakra UI](https://raw.gt.com/chakra-ui/chakra-ui/main/media/logo-colored@2x.png?raw=true)
-
-`navbar` :
-![Chakra UI](https://raw.usercontent.com/chakra-ui/chakra-ui/main/media/logo-colored@2x.png?raw=true)
-```js
-
+ يتميز ChakraUI بوجود نماذج جاهز للإضافة للمشروعك و تعديل عليها لكي تناسب مشروعك ,و  من اشهر هذه المواقع [chakra templates](https://chakra-templates.dev/) , [choc-ui](https://choc-ui.com/) .
+في هذا المثال سوف نضيف `navbar` ونعدل خصائصه لتناسب المشروع اول دخل على , [choc-ui](https://choc-ui.com/) نختار من القائمة الجانبية خيار `navbar` :
+![chakra-ui-img05](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gNhpaiuON1Zve5cvtINaCARNaM63B1J0UTysnSLW_2aaiYarzON49EtoKEoxLQUHrURF4VnP5lq-YzzrqW3gozNQp66=w1366-h657)
+الان نختار نموذج جاهز و لكون الاول نتختار خيار عرض الـكود :
+![chakra-ui-img06](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gO-ABjxRJPqa8p0LjhnvGRLjY5nm8coytYsrySYj6yPGkju_zr-AYMtZ45GogWZS-ZrVKxgrCe-ID_EhfrPc1QJnMPf=w1366-h657)
+ننسخ الكود في الصفحة :
+![chakra-ui-img07](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gNqnfBnuIFbYOlOrf_B2Zu76-ERwXEkroIfWyNTzvlkS5m6L-9Qlf0SbeRn__TiEYKuKaxezoxjuDg90O63NFU3C0C_=w1366-h657)
+ننسخ الكود بالكامل نلصقه في صفحة `comp` المخصصه له :
+![chakra-ui-img07](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gM_EeA1-6q-6yrBa4qLEAYO8ekOIuAcxrRizKPgFfmTq6OXH_SjljT4XjN505EJQ-2y1pQey2nM6Ic8QPyCXFDNSZO8=w2184-h1340)
+مهم : نلاحظ ان اسم `function` يجب تغيره الى `Navbar` :
+![chakra-ui-img08](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gMkFduR-djyyZUcUZN2EC3W1cPgfj9FoyB2KMZ7HAmJeSjLyfgM7TzQEDMo6WlGQbEDPK62Y9NHLioFvQO7YGzlpecJog=w1366-h657)
+لانن نريد ان يكون `navbar` في جميع الصفحات نضيفه مباشرة للملف `index.tsx` :
+* أولا : نستعيه من مجلد `components` :
+```js 
+// index.tsx
+import Navbar from './components/navbar';
 ```
+* ثانيا : نظيفة بعد `  <ChakraProvider >` :
+```js
+  <ChakraProvider>
+    <Navbar />
+    <App />
+  </ChakraProvider>
+  ```
+  
+  الان يكون شكل المشروع كالتالي :
+  ![chakra-ui-img09](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gM-k5OCvC6z0QQKeV5jQkAl3lVYOVKR8VUnSpjeAmgGHjTa1LGquSsLkpm78gM2F0fdR9tOXVUYd6pr-z0x4lmQHJb1=w1366-h657)
+  وللأجهزة الجوال :
+  ![chakra-ui-img10](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gOdDNj-93rLfPzKl1fcNM0eojvEErSdaBSDD1rdcJeBeefib-7yuVY9ALz5u7KgTR24aVniRsMym2M4xve6kIIO_-epdQ=w1960-h3486)
+  
