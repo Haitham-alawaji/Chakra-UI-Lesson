@@ -57,7 +57,7 @@ reportWebVitals();
 
 ## العناصر / Components
 توفر مكتبة ChakraUI  ,عناصر جاهزة للاستخدام للتوفير الكثير من الوقت و الجهد و تتميز بخصائص سهلة التعديل 
-على عكس `css` جميع عناصر `chakra-ui` تبدأ بحرف كبير =========>
+على عكس `css` جميع عناصر `chakra-ui` تبدأ بحرف كبير مثل `Box` , `Card` , `Input` :
 ### box : 
 يعد عنصر `Box` خلاصة جميع العناصر حيث يعد من العناصر الأساسية في بناء جميع العناصر الاخرى , ويحل محل `dev`
 تكون أهمية إستعمال `Box` في
@@ -65,16 +65,93 @@ reportWebVitals();
 * توفر إختصار من خلال تمرير `props` فا بدلا من إستعمال `backgroundColor` نستطيع إستعمال `bg` وتعطي نفس النتيجة 
 * إستعمال خصائص عنصر اخر عن طريق `as` prop
 ```js
- <Box bg="#fff" as='button'>This is a card</Box>
+ <Box bg="#fff" as='button'>This is a Box</Box>
 
 ```
 
 خطواة إستعمال box
-اولا : نستدعي `Box`من مكتبة `@chakara-ui/react`
+اولا : نستدعي `Box`من مكتبة في الصفحة في هذا المثال سوف نستعمله في `app.tsx` : `@chakara-ui/react`
 ```js
+// App.tsx
+
 import { Box } from '@chakra-ui/react'
 
+export default function App() {
+  return (
+   <Box>Hello word!</Box>
+  );
+};
 ```
+يكمن استعمال `Box` مباشرة لكن يكون الاستعمال الافضل له مشابه للاستعمال `div` حيث يكون بتجميع العناصر داخل `Box` لليسهل التحكم بجميع العناصر الموجوده داخله دفعه واحده  :
+```js
+//App.tsx
+
+import {
+Box,
+Text,
+Image,
+} from '@chakra-ui/react'
+
+export default function App() {
+
+const property = {
+    imageUrl: "https://pbs.twimg.com/profile_images/1595710799556780034/cYX8qbt3_400x400.jpg",
+    imageAlt: "أكادمية طويق 
+    title: "معسكر تطوير مواقع الويب",
+  };
+  return (
+  <Box maxW='sm' borderWidth='1px' borderRadius='lg' m="auto" mt="20" >
+      <Image src={property.imageUrl} alt={property.imageAlt} />
+
+      <Box 
+      p='6' 
+      bg="gray.300"
+      boxShadow="lg"
+                   >
+
+        <Text
+          mt='1'
+          dir="rtl"
+          fontWeight='semibold'
+          display="flex"
+          alignContent="center"
+        >
+          {property.title}
+        </Text>
+      </Box>
+    </Box>
+                  
+);
+};
+``` 
+حيث يكون المثال السابق كالتالي:
+![chakraui-img01](https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gO-ZCU0WD8HMm3nRD5MFTL9DP92wbfgq4TsWemRWlRySmRHw7NronOwWMNNdZOCiHoahS8XoVtNKOsww47Y3tmfhXtT=w1366-h657)
+ <br/>نلاحظ بالإظافة للعنصر `Box` إستعملنا أيضا عنصر `Text`,`Image` ننتبه هنا انه يجب إستدعاء,`Image` `Text` من مكتبة `Chakra` :
+ ```js
+ //App.tsx
+ import {
+Box,
+Text,
+Image,
+} from '@chakra-ui/react'
+```
+حيث يجب أن نستدعي أي عنص نستخدمه من مكتية `Chakra` أولا 
+
+نلاحظ أيضا انه استعملانا مجموعة من `props` مع كلنا من `Box`,`Image`و`Text` :
+```js
+  <Box maxW='sm' borderWidth='1px' borderRadius='lg' m="auto" mt="20" >
+      <Image src={property.imageUrl} alt={property.imageAlt} />
+```
+`maxW`= maxWidth :  ليكون :`xs`صغير ,`sm`متوسط و`lx` للـكبير   "`px,rem,em,...`"يحدد الحد الاقصى لعرض العنصر وتحدد قيمتة  بـ وحدات الحجم  او بالقيم الجاهزة من مكتبةchakra  
+
+| Comp       | |          |     
+| -----------|-- | ----------- |
+| maxW     	 |maxWidth : |يحدد الحد الاقصى لعرض العنصر وتحدد قيمتة  بـ وحدات الحجم 
+<br/>:`px,rem,em,...` او بالقيم الجاهزة من `Chakra` ليكون :`xs`صغير ,`sm`متوسط و`lx` للـكبير      |  
+| color       | color       |
+| bg, background     |   background       | 
+|      fontFamily    |   font-family	    | 
+|      fontSize      |  font-size	          | 
 
 
 
